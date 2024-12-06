@@ -1,77 +1,84 @@
-#main-header {
-    background-color: #f0f0f0;
-    padding: 20px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.main-nav {
-    padding: 10px;
-    background-color: #fff;
-    margin: 10px 0;
-}
-
-.featured-article.tech-article {
-    border-left: 4px solid blue;
-    padding: 20px;
-    margin: 20px;
-    background-color: #fff;
-}
-
-article p {
-    line-height: 1.6;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-article > h2 {
-    color: navy;
-    margin-bottom: 20px;
-}
-
-h2 + .article-content {
-    margin-top: 20px;
-}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 20px;
-}
-
-[href="#"] {
-    color: #444;
-    text-decoration: none;
-    padding: 5px 10px;
-}
-
-th, td {
-    padding: 12px;
-    border: 1px solid #ddd;
-    text-align: center
-}
-
-.nav-link + .nav-link {
-    margin-left: 10px;
-}
-
-.highlight {
-    background-color: #ffffd0;
-    padding: 10px;
-}
-
-th {
-    background-color: #f5f5f5;
-}
-
-tr:hover {
-    background-color: #f9f9f9;
-}
-
+/* Đặt cấu trúc và phong cách chung */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 20px;
-    background-color: #fafafa;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: #333;
+}
+
+/* Khung chứa nội dung */
+.container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 300px;
+}
+
+/* Tiêu đề */
+.container h1 {
+  font-size: 24px;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+/* Phong cách cho ô nhập */
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Hiệu ứng khi người dùng nhập vào ô */
+input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+/* Vùng chứa các nút bấm */
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Hiệu ứng khi hover hoặc nhấn nút */
+button:hover {
+  background-color: #0056b3;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* Vùng hiển thị kết quả */
+.result {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #28a745;
+}
+
+/* Vùng hiển thị thông báo lỗi */
+.error {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 10px;
 }

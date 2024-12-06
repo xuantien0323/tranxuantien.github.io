@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Multiply Example</title>
+</head>
+<body>
+    <h1>Nhập một số và tính A * 2 = RESULT khi nhấn phím</h1>
+
+    <input type="text" id="inputValue" placeholder="Nhập số A" />
+    <p id="result">Kết quả: </p>
+
+    <script>
+        // Hàm tính toán A * 2 và hiển thị kết quả dưới dạng A * 2 = RESULT
+        function calculate() {
+            let A = parseFloat(document.getElementById('inputValue').value);
+
+            if (isNaN(A)) {
+                document.getElementById('result').innerText = 'Vui lòng nhập một số hợp lệ!';
+            } else {
+                let RESULT = A * 2;
+                // Hiển thị theo định dạng A * 2 = RESULT
+                document.getElementById('result').innerText = A + ' * 2 = ' + RESULT;
+            }
+        }
+
+        // Sử dụng keyup để tính toán sau khi thả phím
+        //document.getElementById('inputValue').addEventListener('keyup', function(event) {
+            // Tính toán sau khi thả phím
+            //calculate();
+        //});
+
+        // Hoặc bạn có thể sử dụng keydown thay vì keyup:
+         document.getElementById('inputValue').addEventListener('keydown', function(event) {
+           // Tính toán sau mỗi lần nhấn phím
+            calculate();
+         });
+    </script>
+</body>
+</html>
