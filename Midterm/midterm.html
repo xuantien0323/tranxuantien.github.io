@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <h2>Register</h2>
+    <form id="registrationForm" onsubmit="return validateForm()">
+        <div>
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required minlength="3" oninput="validateField(this)">
+            <br>
+            <span id="usernameError" style="color: red;"></span>
+        </div>
+        <br>
+        <div>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required oninput="validateField(this)">
+            <br>
+            <span id="emailError" style="color: red;"></span>
+        </div>
+        <br>
+        <div>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required minlength="8" oninput="validateField(this)">
+            <br>
+            <span id="passwordError" style="color: red;"></span>
+        </div>
+        <br>
+        <div>
+            <label for="confirmPassword">Confirm Password:</label><br>
+            <input type="password" id="confirmPassword" name="confirmPassword" required oninput="validateField(this)">
+            <br>
+            <span id="confirmPasswordError" style="color: red;"></span>
+        </div>
+        <br>
+        <div>
+            <label for="phoneNumber">Phone Number:</label><br>
+            <input type="tel" id="phoneNumber" name="phoneNumber" required pattern="\d{3}-\d{3}-\d{4}" placeholder="XXX-XXX-XXXX" oninput="validateField(this)">
+            <br>
+            <span id="phoneNumberError" style="color: red;"></span>
+        </div>
+        <br>
+        <input type="submit" value="Register">
+    </form>
+
+    <script>
+        function validateField(field) {
+            const errorSpan = document.getElementById(field.id + 'Error');
+            field.style.border = '';
+            errorSpan.textContent = '';
+
+            switch(field.id) {
+                case 'username':
+                    if (field.value.length < 3) {
+                        errorSpan.textContent = 'Username must be at least 3 characters long';
+                        field.style.border = '1px solid red';
+                    }
+                    break;
+                case 'email':
+                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
+                        errorSpan.textContent = 'Please enter a valid email address';
+                        field.style.border = '1px solid red';
+                    }
+                    break;
+                case 'password':
+                    if (!/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/.test(field.value)) {
+                        errorSpan.textContent = 'Password must be at least 8 characters long and contain at least one number and one special character';
+                        field.style.border = '1px solid red';
+                    }
+                    break;
+                case 'confirmPassword':
+                    if (field.value !== document.getElementById('password').value) {
+                        errorSpan.textContent = 'Passwords must match';
+                        field.style.border = '1px solid red';
+                    }
+                    break;
+                case 'phoneNumber':
+                    if (!/^\d{3}-\d{3}-\d{4}$/.test(field.value)) {
+                        errorSpan.textContent = 'Please enter a valid phone number (XXX-XXX-XXXX)';
+                        field.style.border = '1px solid red';
+                    }
+                    break;
+            }
+        }
+
+        function validateForm() {
+            const fields = ['username', 'email', 'password', 'confirmPassword', 'phoneNumber'];
+            let isValid = true;
+
+            fields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                validateField(field);
+                if (document.getElementById(fieldId + 'Error').textContent !== '') {
+                    isValid = false;
+                }
+            });
+
+            if (isValid) {
+                alert('Registration successful!');
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
