@@ -1,0 +1,80 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: dimgrey;
+    color: aquamarine;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+}
+
+/* Navigation */
+nav {
+    background-color: #333;
+    text-align: center;
+    padding: 2rem;
+}
+
+nav a {
+    color: darkgoldenrod;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: aquamarine;
+}
+
+/* Main Sections */
+main {
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: #4CAF50;
+    margin-bottom: 1rem;
+}
+
+section ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+}
+
+section li {
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
